@@ -1,0 +1,80 @@
+{
+  "info": {
+    "name": "VZDolci Backend API",
+    "description": "Collection de endpoints da API REST do VZDolci Backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "Listar Todos os Produtos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/v1/products",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "v1", "products"]
+            },
+            "description": "Lista todos os produtos cadastrados"
+          }
+        },
+        {
+          "name": "Listar Produtos Ativos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/v1/products?activeOnly=true",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "v1", "products"],
+              "query": [
+                {
+                  "key": "activeOnly",
+                  "value": "true"
+                }
+              ]
+            },
+            "description": "Lista apenas produtos ativos (isActive = true)"
+          }
+        },
+        {
+          "name": "Buscar Produto por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/v1/products/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "v1", "products", "1"]
+            },
+            "description": "Busca um produto específico pelo ID"
+          }
+        },
+        {
+          "name": "Buscar Produto Inexistente (404)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/v1/products/999",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "v1", "products", "999"]
+            },
+            "description": "Testa o tratamento de erro 404 quando o produto não existe"
+          }
+        }
+      ]
+    }
+  ]
+}

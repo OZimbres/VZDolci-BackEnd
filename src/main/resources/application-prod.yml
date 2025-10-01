@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${SUPABASE_HOST}:${SUPABASE_PORT}/${SUPABASE_DB}?sslmode=require
+    username: ${SUPABASE_USER}
+    password: ${SUPABASE_PASSWORD}
+    hikari:
+      maximum-pool-size: 5
+      minimum-idle: 2
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
