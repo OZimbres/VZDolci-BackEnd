@@ -1,9 +1,13 @@
-package com.vzdolci.backend.infrastructure.web.dto;
+package com.vzdolci.backend.application.dto;
 
 import com.vzdolci.backend.domain.model.Product;
 
 import java.math.BigDecimal;
 
+/**
+ * Data Transfer Object for Product responses.
+ * DTOs in the application layer define the shape of data for APIs.
+ */
 public class ProductResponse {
     private Long id;
     private String name;

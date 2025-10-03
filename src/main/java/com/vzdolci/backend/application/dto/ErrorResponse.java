@@ -1,7 +1,10 @@
-package com.vzdolci.backend.infrastructure.web.dto;
+package com.vzdolci.backend.application.dto;
 
 import java.time.OffsetDateTime;
 
+/**
+ * Data Transfer Object for error responses.
+ */
 public class ErrorResponse {
     private String message;
     private int status;
