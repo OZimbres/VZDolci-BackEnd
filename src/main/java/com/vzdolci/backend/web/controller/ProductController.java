@@ -1,15 +1,20 @@
-package com.vzdolci.backend.infrastructure.web.controller;
+package com.vzdolci.backend.web.controller;
 
+import com.vzdolci.backend.application.dto.ProductResponse;
 import com.vzdolci.backend.application.usecase.GetAllProductsUseCase;
 import com.vzdolci.backend.application.usecase.GetProductByIdUseCase;
 import com.vzdolci.backend.domain.model.Product;
-import com.vzdolci.backend.infrastructure.web.dto.ProductResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * REST Controller for Product endpoints.
+ * Controllers in the web layer handle HTTP requests and delegate to use cases.
+ * They are kept thin, focusing only on HTTP concerns.
+ */
 @RestController
 @RequestMapping("/api/v1/products")
 @CrossOrigin(origins = "*")

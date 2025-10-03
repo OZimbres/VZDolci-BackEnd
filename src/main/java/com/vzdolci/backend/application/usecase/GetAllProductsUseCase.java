@@ -1,35 +1,30 @@
 package com.vzdolci.backend.application.usecase;
 
-import com.vzdolci.backend.application.mapper.ProductMapper;
 import com.vzdolci.backend.domain.model.Product;
-import com.vzdolci.backend.infrastructure.persistence.repository.ProductRepository;
+import com.vzdolci.backend.domain.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
+/**
+ * Use case for retrieving all products.
+ * This service depends on the domain repository interface, not on infrastructure.
+ * Follows the Dependency Inversion Principle - depends on abstraction, not concretions.
+ */
 @Service
 public class GetAllProductsUseCase {
     
     private final ProductRepository productRepository;
-    private final ProductMapper productMapper;
     
-    public GetAllProductsUseCase(ProductRepository productRepository, ProductMapper productMapper) {
+    public GetAllProductsUseCase(ProductRepository productRepository) {
         this.productRepository = productRepository;
-        this.productMapper = productMapper;
     }
     
     public List<Product> execute() {
-        return productRepository.findAll()
-                .stream()
-                .map(productMapper::toDomain)
-                .collect(Collectors.toList());
+        return productRepository.findAll();
     }
     
     public List<Product> executeActiveOnly() {
-        return productRepository.findByIsActiveTrue()
-                .stream()
-                .map(productMapper::toDomain)
-                .collect(Collectors.toList());
+        return productRepository.findActiveProducts();
     }
 }
